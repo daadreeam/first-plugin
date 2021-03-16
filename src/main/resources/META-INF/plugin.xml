@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>com.daadreeam.first-plugin</id>
+    <name>first-plugin-daadreeam</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!--所有的IDEA公用一个单例-->
+        <applicationService id="applicationService" serviceInterface="com.daadreeam.service.ApplicationService"
+                            serviceImplementation="com.daadreeam.service.impl.ApplicationServiceImpl"/>
+        <!--每个工程单独使用一个单例-->
+        <projectService id="projectService" serviceInterface="com.daadreeam.service.ProjectService"
+                        serviceImplementation="com.daadreeam.service.impl.ProjectServiceImpl"/>
+    </extensions>
+
+    <actions>
+        <!--action-->
+            <action id="ActionDemo" class="com.daadreeam.action.ActionDemo" text="Daadreeam's Click Here" description="Daadreeam's action">
+                <add-to-group group-id="HelpMenu" anchor="first"/>
+            </action>
+
+    </actions>
+</idea-plugin>
